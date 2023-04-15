@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
@@ -16,5 +17,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@types/mocha": "^10.0.1",
+    "ethers": "^5.0.0",
+    "hardhat": "^2.13.1",
+    "ts-node": "^10.9.1"
   }
 }
