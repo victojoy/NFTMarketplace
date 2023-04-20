@@ -18,7 +18,7 @@ contract NFTMarketplace is ERC721URIStorage, Ownable {
    Counters.Counter private _tokenIds;
    mapping(uint256 => NFTListing) private _listings;
 
-   event NFTTransfer(uint256 tokenID, address to, string tokenURI, uint256 price);
+   event NFTTransfer(uint256 tokenID, address from, address to, string tokenURI, uint256 price);
    
    // if tokenURI is not empty string => NFT was created
    // if price is not 0 => NFT was listed
@@ -30,7 +30,7 @@ contract NFTMarketplace is ERC721URIStorage, Ownable {
       uint256 currentId = _tokenIds.current();
       _safeMint(msg.sender, currentId);
       _setTokenURI(currentId, tokenURI);
-      emit NFTTransfer(currentId, msg.sender, tokenURI, 0);
+      emit NFTTransfer(currentId, address(0), msg.sender, tokenURI, 0);
    }
 
    //listing
@@ -38,7 +38,7 @@ contract NFTMarketplace is ERC721URIStorage, Ownable {
       require(price > 0, "NFTMarketplace: price must be > 0");
       transferFrom(msg.sender, address(this), tokenID);
       _listings[tokenID] = NFTListing(price, msg.sender);
-      emit NFTTransfer(tokenID, address(this), "", price);
+      emit NFTTransfer(tokenID,msg.sender, address(this), "", price);
    }
 
    //buying
@@ -49,7 +49,7 @@ contract NFTMarketplace is ERC721URIStorage, Ownable {
       ERC721(address(this)).transferFrom(address(this), msg.sender, tokenID);
       clearListing(tokenID);
       payable(listing.seller).transfer(listing.price.mul(95).div(100));
-      emit NFTTransfer(tokenID, msg.sender, "", 0);
+      emit NFTTransfer(tokenID,address(this), msg.sender, "", 0);
    }
 
    //cancel listing
@@ -59,7 +59,7 @@ contract NFTMarketplace is ERC721URIStorage, Ownable {
       require(listing.seller == msg.sender, "NFTMarketplace: You're not the owner of this NFT");
       ERC721(address(this)).transferFrom(address(this), msg.sender, tokenID);
       clearListing(tokenID);
-      emit NFTTransfer(tokenID, msg.sender, "", 0);
+      emit NFTTransfer(tokenID, address(this), msg.sender, "", 0);
    }
 
    function withdrawFunds() public onlyOwner{
