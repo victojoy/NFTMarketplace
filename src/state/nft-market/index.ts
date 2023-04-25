@@ -3,14 +3,17 @@ import { BigNumber, Contract, ethers } from "ethers";
 import { CreationValues } from "../../modules/CreationPage/CreationForm";
 import useSigner from "../../state/signer";
 import NFTMarketplace from "../../../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
-import { NFT_MARKET_ADDRESS } from "./config";
+//import { NFT_MARKET_ADDRESS } from "./config";
 import { NFT } from "./interfaces";
 import useListedNFTs from "./useListedNFTs";
 import useOwnedListedNFTs from "./useOwnedListedNFTs";
 import useOwnedNFTs from "./useOwnedNFTs";
 
+const NFT_MARKET_ADDRESS = "0x7e78Dac0eA735A4e4d9e9F73Daa2C54b403DFd58";
+
 const useNFTMarket = () => {
   const { signer } = useSigner();
+  console.log("ADRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS: ", NFT_MARKET_ADDRESS);
   const nftMarket = new Contract(NFT_MARKET_ADDRESS, NFTMarketplace.abi, signer);
 
   const ownedNFTs = useOwnedNFTs();
