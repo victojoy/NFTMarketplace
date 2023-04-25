@@ -2,7 +2,7 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { BigNumber, Contract, ethers } from "ethers";
 import { CreationValues } from "../../modules/CreationPage/CreationForm";
 import useSigner from "../../state/signer";
-import NFT_MARKET from "../../../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import NFTMarketplace from "../../../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import { NFT_MARKET_ADDRESS } from "./config";
 import { NFT } from "./interfaces";
 import useListedNFTs from "./useListedNFTs";
@@ -11,7 +11,7 @@ import useOwnedNFTs from "./useOwnedNFTs";
 
 const useNFTMarket = () => {
   const { signer } = useSigner();
-  const nftMarket = new Contract(NFT_MARKET_ADDRESS, NFT_MARKET.abi, signer);
+  const nftMarket = new Contract(NFT_MARKET_ADDRESS, NFTMarketplace.abi, signer);
 
   const ownedNFTs = useOwnedNFTs();
   const ownedListedNFTs = useOwnedListedNFTs();

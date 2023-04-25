@@ -25,15 +25,15 @@ const NavBarItem = (props: NavbarItemProps) => {
   const isActive = href == `/${activeRoute}`;
 
   return (
-    <Link href={href}>
-      <a
-        className={classNames("rounded-lg px-4 py-2 font-semibold", {
-          "bg-black text-white": isActive,
-        })}
-      >
-        {children}
-      </a>
-    </Link>
+    (<Link
+      href={href}
+      className={classNames("rounded-lg px-4 py-2 font-semibold", {
+        "bg-black text-white": isActive,
+      })}>
+
+      {children}
+
+    </Link>)
   );
 };
 
