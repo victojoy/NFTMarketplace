@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XIcon } from "@heroicons/react/solid";
 import { ReactNode } from "react";
 
 type DialogProps = {
@@ -21,7 +21,7 @@ const CustomDialog = (props: DialogProps) => {
     >
       <div className="relative z-20 flex flex-col rounded-xl bg-white p-4">
         <button onClick={onClose} className="absolute right-4 top-4">
-          <XMarkIcon className="h-5 w-5" />
+          <XIcon className="h-5 w-5" />
         </button>
         <Dialog.Title className="text-2xl font-bold">{title}</Dialog.Title>
         <Dialog.Description className="mb-2">{description}</Dialog.Description>
@@ -33,3 +33,4 @@ const CustomDialog = (props: DialogProps) => {
 };
 
 export default CustomDialog;
+

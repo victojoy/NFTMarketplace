@@ -1,10 +1,7 @@
-import { time, loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
 import { Contract} from "ethers";
 import { ethers } from "hardhat";
-import { NFTMarketplace__factory } from "../typechain-types";
 
 describe("NFTMArketplace", () => {
   let nftMarketplace: Contract;

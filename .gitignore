@@ -25,35 +25,25 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 node_modules
 .env
 coverage
 coverage.json
 typechain
-typechain-types
 
-# Hardhat files
+#Hardhat files
 cache
-artifacts
-
-
-node_modules
-.env
-coverage
-coverage.json
-typechain
-typechain-types
-
-# Hardhat files
-cache
-artifacts
-
+artifacts/@openzeppelin
+artifacts/build-info
+dist
