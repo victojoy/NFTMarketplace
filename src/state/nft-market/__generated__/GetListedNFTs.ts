@@ -8,18 +8,18 @@
 // ====================================================
 
 export interface GetListedNFTs_nfts {
-    __typename: "NFT";
-    id: string;
-    from: any;
-    to: any;
-    tokenURI: string;
-    price: any;
-  }
-  
-  export interface GetListedNFTs {
-    nfts: GetListedNFTs_nfts[];
-  }
-  
-  export interface GetListedNFTsVariables {
-    currentAddress: string;
-  }
+  __typename: "NFT";
+  id: string;
+  from: any;
+  to: any;
+  tokenURI: string;
+  price: any;
+}
+
+export interface GetListedNFTs {
+  nfts: GetListedNFTs_nfts[];
+}
+
+export interface GetListedNFTsVariables {
+  currentAddress: string;
+}

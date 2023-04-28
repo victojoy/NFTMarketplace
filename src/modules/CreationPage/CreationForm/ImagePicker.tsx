@@ -1,4 +1,4 @@
-import { ArrowUpOnSquareIcon } from "@heroicons/react/24/solid";
+import { UploadIcon } from "@heroicons/react/solid";
 import classNames from "classnames";
 import { useField } from "formik";
 import { CSSProperties, useEffect, useRef, useState } from "react";
@@ -52,7 +52,7 @@ const ImagePicker = ({ name, className }: ImagePickerProps) => {
       />
       {!url && (
         <div className="flex items-center text-lg font-semibold">
-          <ArrowUpOnSquareIcon className="mr-2 h-9 w-9" />
+          <UploadIcon className="mr-2 h-9 w-9" />
           Upload
         </div>
       )}
